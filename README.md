@@ -3,7 +3,7 @@ A cookies plugin for Aurelia.
 
 ## Installation
 ``` shell
-jspm install npm:aurelia-cookie
+jspm install npm:aurelia-cookies
 ```
 
 or
