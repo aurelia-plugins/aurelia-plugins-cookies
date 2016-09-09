@@ -3,19 +3,16 @@
 System.register(['./aurelia-cookies'], function (_export, _context) {
   "use strict";
 
-  var Cookies;
   return {
     setters: [function (_aureliaCookies) {
-      Cookies = _aureliaCookies.Cookies;
-    }],
-    execute: function () {
-      function configure(config) {
-        config.container.registerSingleton(Cookies, new Cookies());
+      var _exportObj = {};
+
+      for (var _key in _aureliaCookies) {
+        if (_key !== "default" && _key !== "__esModule") _exportObj[_key] = _aureliaCookies[_key];
       }
 
-      _export('configure', configure);
-
-      _export('Cookies', Cookies);
-    }
+      _export(_exportObj);
+    }],
+    execute: function () {}
   };
 });

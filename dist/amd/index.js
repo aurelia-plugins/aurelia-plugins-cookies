@@ -4,11 +4,13 @@ define(['exports', './aurelia-cookies'], function (exports, _aureliaCookies) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.Cookies = undefined;
-  exports.configure = configure;
-  function configure(config) {
-    config.container.registerSingleton(_aureliaCookies.Cookies, new _aureliaCookies.Cookies());
-  }
-
-  exports.Cookies = _aureliaCookies.Cookies;
+  Object.keys(_aureliaCookies).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function () {
+        return _aureliaCookies[key];
+      }
+    });
+  });
 });
