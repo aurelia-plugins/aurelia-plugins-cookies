@@ -1,3 +1,4 @@
+
 // PUBLIC CLASS
 export class Cookies {
 
@@ -61,3 +62,13 @@ export class Cookies {
     return obj;
   }
 }
+
+// IMPORTS
+// PUBLIC METHODS
+export function configure(aurelia) {
+  aurelia.container.registerSingleton(Cookies, new Cookies());
+}
+
+
+// PUBLIC CLASSES
+export {Cookies};

@@ -1,7 +1,5 @@
-// PUBLIC CLASS
-export class Cookies {
 
-  // PUBLIC STATIC METHODS
+export let Cookies = class Cookies {
   static get(key) {
     var cookies = this.getAll();
     if (cookies && cookies[key]) return cookies[key];
@@ -23,7 +21,9 @@ export class Cookies {
 
   static removeAll() {
     var cookies = this.getAll();
-    Object.keys(cookies).forEach(key => { this.remove(key); });
+    Object.keys(cookies).forEach(key => {
+      this.remove(key);
+    });
   }
 
   static put(key, value, options = {}) {
@@ -42,17 +42,25 @@ export class Cookies {
     this.put(key, JSON.stringify(value), options);
   }
 
-  // PRIVATE STATIC METHODS
   static _decode(value) {
-    try { return decodeURIComponent(value); } catch(e) { return null; }
+    try {
+      return decodeURIComponent(value);
+    } catch (e) {
+      return null;
+    }
   }
 
   static _encode(value) {
-    try { return encodeURIComponent(value); } catch(e) { return null; }
+    try {
+      return encodeURIComponent(value);
+    } catch (e) {
+      return null;
+    }
   }
 
   static _parse(str) {
-    var obj = {}, pairs = str.split(/ *; */);
+    var obj = {},
+        pairs = str.split(/ *; */);
     if (pairs[0] === '') return obj;
     for (var i = 0, j = pairs.length; i < j; i++) {
       var pair = pairs[i].split('=');
@@ -60,4 +68,4 @@ export class Cookies {
     }
     return obj;
   }
-}
+};
