@@ -41,7 +41,7 @@ export var Cookies = function () {
     var expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
-    var str = this._encode(key) + '=' + this._encode(value);
+    var str = this._encode(key) + '=' + (value ? this._encode(value) : '');
     if (options.path) str += '; path=' + options.path;
     if (options.domain) str += '; domain=' + options.domain;
     if (options.expires) str += '; expires=' + expires.toUTCString();
