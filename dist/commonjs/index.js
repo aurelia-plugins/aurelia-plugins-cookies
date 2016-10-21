@@ -4,14 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _aureliaCookies = require('./aurelia-cookies');
+var _aureliaPluginsCookies = require('./aurelia-plugins-cookies');
 
-Object.keys(_aureliaCookies).forEach(function (key) {
+Object.keys(_aureliaPluginsCookies).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _aureliaCookies[key];
+      return _aureliaPluginsCookies[key];
     }
   });
 });

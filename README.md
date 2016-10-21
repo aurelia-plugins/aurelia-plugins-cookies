@@ -1,4 +1,4 @@
-# aurelia-cookies
+# aurelia-plugins-cookies
 
 A cookies plugin for Aurelia.
 
@@ -7,19 +7,19 @@ A cookies plugin for Aurelia.
 **Webpack/Aurelia CLI**
 
 ```shell
-npm install aurelia-cookies --save
+npm install aurelia-plugins-cookies --save
 ```
 
 **JSPM**
 
 ```shell
-jspm install aurelia-cookies
+jspm install aurelia-plugins-cookies
 ```
 
 **Bower**
 
 ```shell
-bower install aurelia-cookies
+bower install aurelia-plugins-cookies
 ```
 
 ## Configuration
@@ -30,7 +30,7 @@ Add to `package.json`
   "aurelia": {
     "build": {
       "resources": [
-        "aurelia-cookies"
+        "aurelia-plugins-cookies"
       ]
     }
   }
@@ -45,7 +45,7 @@ export async function configure(aurelia) {
     .developmentLogging();
 
   aurelia.use
-    .plugin('aurelia-cookies');
+    .plugin('aurelia-plugins-cookies');
 
     await aurelia.start();
     aurelia.setRoot('app');
@@ -57,7 +57,7 @@ export async function configure(aurelia) {
 The following methods are provided:
 
 ```javascript
-import {Cookies} from 'aurelia-cookies';
+import {Cookies} from 'aurelia-plugins-cookies';
 
 export class App {
   // Returns the value (string) of the given cookie key

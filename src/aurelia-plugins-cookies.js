@@ -1,5 +1,5 @@
 // IMPORTS
-import {Cookies} from './aurelia-cookies-class';
+import {Cookies} from './aurelia-plugins-cookies-class';
 
 
 // PUBLIC METHODS

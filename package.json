@@ -1,24 +1,25 @@
 {
-  "name": "aurelia-cookies",
-  "version": "1.1.3",
+  "name": "aurelia-plugins-cookies",
+  "version": "1.2.0",
   "description": "A cookies plugin for Aurelia.",
   "keywords": [
     "aurelia",
+    "plugins",
     "plugin",
-    "cookie",
-    "cookies"
+    "cookies",
+    "cookie"
   ],
-  "homepage": "https://github.com/aurelia-plugins/aurelia-cookies",
+  "homepage": "https://github.com/aurelia-plugins/aurelia-plugins-cookies",
   "bugs": {
-    "url": "https://github.com/aurelia-plugins/aurelia-cookies/issues"
+    "url": "https://github.com/aurelia-plugins/aurelia-plugins-cookies/issues"
   },
   "license": "MIT",
   "author": "Bart Lenaerts <bart@itprosolutions.be> (http://itprosolutions.be/)",
-  "main": "dist/commonjs/aurelia-cookies.js",
-  "typings": "dist/aurelia-cookies.d.ts",
+  "main": "dist/commonjs/aurelia-plugins-cookies.js",
+  "typings": "dist/aurelia-plugins-cookies.d.ts",
   "repository": {
     "type": "git",
-    "url": "http://github.com/aurelia-plugins/aurelia-cookies"
+    "url": "http://github.com/aurelia-plugins/aurelia-plugins-cookies"
   },
   "jspm": {
     "registry": "npm",

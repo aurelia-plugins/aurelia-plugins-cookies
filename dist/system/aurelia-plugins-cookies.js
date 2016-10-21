@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['./aurelia-cookies-class'], function (_export, _context) {
+System.register(['./aurelia-plugins-cookies-class'], function (_export, _context) {
   "use strict";
 
   var Cookies;
@@ -11,8 +11,8 @@ System.register(['./aurelia-cookies-class'], function (_export, _context) {
   _export('configure', configure);
 
   return {
-    setters: [function (_aureliaCookiesClass) {
-      Cookies = _aureliaCookiesClass.Cookies;
+    setters: [function (_aureliaPluginsCookiesClass) {
+      Cookies = _aureliaPluginsCookiesClass.Cookies;
     }],
     execute: function () {
       _export('Cookies', Cookies);
