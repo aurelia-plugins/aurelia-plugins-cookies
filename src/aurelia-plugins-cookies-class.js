@@ -30,10 +30,10 @@ export class Cookies {
     var expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
-    var str = this._encode(key) + '=' + (value != null ? this._encode(value) : '');
-    if (options.path) str += '; path=' + options.path;
-    if (options.domain) str += '; domain=' + options.domain;
-    if (options.expires) str += '; expires=' + expires.toUTCString();
+    var str = `${this._encode(key)}=${value != null ? this._encode(value) : ''}`;
+    if (options.path) str += `; path=${options.path}`;
+    if (options.domain) str += `; domain=${options.domain}`;
+    if (options.expires) str += `; expires=${expires.toUTCString()}`;
     if (options.secure) str += '; secure';
     document.cookie = str;
   }
