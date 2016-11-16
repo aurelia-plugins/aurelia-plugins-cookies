@@ -1,14 +1,11 @@
-define(['exports', './aurelia-plugins-cookies-class'], function (exports, _aureliaPluginsCookiesClass) {
-  'use strict';
+define(["exports"], function (exports) {
+  "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.Cookies = undefined;
   exports.configure = configure;
   function configure(aurelia) {
-    aurelia.container.registerSingleton(_aureliaPluginsCookiesClass.Cookies, new _aureliaPluginsCookiesClass.Cookies());
+    aurelia.container.registerSingleton(Cookies, new Cookies());
   }
-
-  exports.Cookies = _aureliaPluginsCookiesClass.Cookies;
 });

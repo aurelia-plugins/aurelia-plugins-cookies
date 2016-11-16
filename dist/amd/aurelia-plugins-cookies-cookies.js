@@ -28,7 +28,7 @@ define(['exports'], function (exports) {
     };
 
     Cookies.remove = function remove(key) {
-      var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       this.put(key, null, options);
     };
@@ -43,7 +43,7 @@ define(['exports'], function (exports) {
     };
 
     Cookies.put = function put(key, value) {
-      var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
       var expires = options.expires;
       if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
@@ -57,7 +57,7 @@ define(['exports'], function (exports) {
     };
 
     Cookies.putObject = function putObject(key, value) {
-      var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
       this.put(key, JSON.stringify(value), options);
     };
