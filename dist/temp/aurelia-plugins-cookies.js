@@ -7,6 +7,10 @@ exports.configure = configure;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function configure(aurelia) {
+  aurelia.container.registerSingleton(Cookies, new Cookies());
+}
+
 var Cookies = exports.Cookies = function () {
   function Cookies() {
     _classCallCheck(this, Cookies);
@@ -28,7 +32,7 @@ var Cookies = exports.Cookies = function () {
   };
 
   Cookies.remove = function remove(key) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     this.put(key, null, options);
   };
@@ -43,7 +47,7 @@ var Cookies = exports.Cookies = function () {
   };
 
   Cookies.put = function put(key, value) {
-    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     var expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
@@ -57,7 +61,7 @@ var Cookies = exports.Cookies = function () {
   };
 
   Cookies.putObject = function putObject(key, value) {
-    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     this.put(key, JSON.stringify(value), options);
   };
@@ -91,9 +95,3 @@ var Cookies = exports.Cookies = function () {
 
   return Cookies;
 }();
-
-function configure(aurelia) {
-  aurelia.container.registerSingleton(Cookies, new Cookies());
-}
-
-exports.Cookies = Cookies;
