@@ -1,7 +1,4 @@
 
-// PUBLIC METHODS
-export declare function configure(aurelia?: any): any;
-
 // PUBLIC CLASS
 export declare class Cookies {
   

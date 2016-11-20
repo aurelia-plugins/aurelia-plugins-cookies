@@ -36,23 +36,11 @@ Add to `package.json`
   }
 ```
 
-Inside of your `main.js` or `main.ts` file simply load the plugin inside of the configure method using `.plugin()`.
-
-```javascript
-export async function configure(aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .developmentLogging();
-
-  aurelia.use
-    .plugin('aurelia-plugins-cookies');
-
-    await aurelia.start();
-    aurelia.setRoot('app');
-}
-```
+It is not necessary to load the plugin inside of the configure method of your `main.js` or `main.ts`, because this plugin doesn't use any dependencies of Aurelia. The only thing you need to be sure of, is that the library is loaded in your project.
 
 ## Usage
+
+The plugin is used as a class with static methods. No dependency injection is necessary. Just import it in your own class.
 
 The following methods are provided:
 
