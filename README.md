@@ -64,7 +64,7 @@ export class App {
   Cookies.putObject(key, value, [options]);
   
   // Remove the cookie with the given cookie key
-  Cookies.remove(key);
+  Cookies.remove(key, [options]);
   
   // Removes all the cookies
   Cookies.removeAll();
