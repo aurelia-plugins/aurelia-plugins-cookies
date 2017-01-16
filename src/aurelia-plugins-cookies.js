@@ -1,19 +1,19 @@
 // PUBLIC CLASS
-export class Cookies {
+export default class Cookies {
 
   // PUBLIC STATIC METHODS
   static get(key) {
-    var cookies = this.getAll();
+    const cookies = this.getAll();
     if (cookies && cookies[key]) return cookies[key];
     return null;
   }
 
   static getAll() {
-    return this._parse(document.cookie);
+    return this.parse(document.cookie);
   }
 
   static getObject(key) {
-    var value = this.get(key);
+    const value = this.get(key);
     return value ? JSON.parse(value) : value;
   }
 
@@ -22,15 +22,15 @@ export class Cookies {
   }
 
   static removeAll() {
-    var cookies = this.getAll();
-    Object.keys(cookies).forEach(key => { this.remove(key); });
+    const cookies = this.getAll();
+    Object.keys(cookies).forEach((key) => { this.remove(key); });
   }
 
-  static put(key, value, options = {}) {
-    var expires = options.expires;
+  static put(key, value, options) {
+    let expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
-    var str = `${this._encode(key)}=${value != null ? this._encode(value) : ''}`;
+    let str = `${this.encode(key)}=${value != null ? this.encode(value) : ''}`;
     if (options.path) str += `; path=${options.path}`;
     if (options.domain) str += `; domain=${options.domain}`;
     if (options.expires) str += `; expires=${expires.toUTCString()}`;
@@ -43,20 +43,21 @@ export class Cookies {
   }
 
   // PRIVATE STATIC METHODS
-  static _decode(value) {
-    try { return decodeURIComponent(value); } catch(e) { return null; }
+  static decode(value) {
+    try { return decodeURIComponent(value); } catch (e) { return null; }
   }
 
-  static _encode(value) {
-    try { return encodeURIComponent(value); } catch(e) { return null; }
+  static encode(value) {
+    try { return encodeURIComponent(value); } catch (e) { return null; }
   }
 
-  static _parse(str) {
-    var obj = {}, pairs = str.split(/ *; */);
+  static parse(str) {
+    const obj = {};
+    const pairs = str.split(/ *; */);
     if (pairs[0] === '') return obj;
-    for (var i = 0, j = pairs.length; i < j; i++) {
-      var pair = pairs[i].split('=');
-      obj[this._decode(pair[0])] = this._decode(pair[1]);
+    for (let i = 0, j = pairs.length; i < j; i += 1) {
+      const pair = pairs[i].split('=');
+      obj[this.decode(pair[0])] = this.decode(pair[1]);
     }
     return obj;
   }

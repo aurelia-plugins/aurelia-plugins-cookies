@@ -1,9 +1,7 @@
 define(['exports', './aurelia-plugins-cookies'], function (exports, _aureliaPluginsCookies) {
   'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+  exports.__esModule = true;
   Object.keys(_aureliaPluginsCookies).forEach(function (key) {
     if (key === "default" || key === "__esModule") return;
     Object.defineProperty(exports, key, {

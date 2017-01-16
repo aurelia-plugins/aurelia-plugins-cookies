@@ -1,5 +1,3 @@
-'use strict';
-
 System.register(['./aurelia-plugins-cookies'], function (_export, _context) {
   "use strict";
 

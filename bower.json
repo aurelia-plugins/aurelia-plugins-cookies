@@ -10,15 +10,14 @@
     "cookie"
   ],
   "homepage": "https://github.com/aurelia-plugins/aurelia-plugins-cookies",
-  "main": "dist/commonjs/aurelia-plugins-cookies.js",
-  "moduleType": "node",
   "license": "MIT",
   "authors": [
     "Bart Lenaerts <bart@itprosolutions.be> (http://itprosolutions.be/)"
   ],
+  "main": "dist/commonjs/aurelia-plugins-cookies.js",
+  "moduleType": "node",
   "repository": {
     "type": "git",
     "url": "http://github.com/aurelia-plugins/aurelia-plugins-cookies"
-  },
-  "dependencies": {}
+  }
 }
