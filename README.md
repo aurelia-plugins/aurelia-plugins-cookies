@@ -51,7 +51,7 @@ export class App {
   // Returns the value (string) of the given cookie key
   Cookies.get(key);
   
-  // Returns a key value object with all the cookies
+  // Returns a key/value object with all the cookies
   Cookies.getAll();
   
   // Returns the deserialized value (object) of the given cookie key
@@ -80,7 +80,7 @@ Cookie options can be set by passing a plain object in the last argument to `Coo
 A `string` indicating a valid domain where the cookie should be visible. The cookie will also be visible to all subdomains.
 
 ```javascript
-Cookies.put('key', 'value', { domain: 'subdomain.site.com' })
+Cookies.put('key', 'value', { domain: 'subdomain.site.com' });
 ```
 
 ### expires
@@ -88,7 +88,7 @@ Cookies.put('key', 'value', { domain: 'subdomain.site.com' })
 Define when the cookie will be removed. Value can be a `string` which will be converted to a date or a `Date` instance. If omitted, the cookie becomes a session cookie.
 
 ```javascript
-Cookies.put('key', 'value', { expires: 'Fri, 09 Sep 2016 00:00:01 GMT' })
+Cookies.put('key', 'value', { expires: 'Fri, 09 Sep 2016 00:00:01 GMT' });
 ```
 
 ### path
@@ -96,7 +96,7 @@ Cookies.put('key', 'value', { expires: 'Fri, 09 Sep 2016 00:00:01 GMT' })
 A `string` indicating the path where the cookie is visible.
 
 ```javascript
-Cookies.put('key', 'value', { path: '' })
+Cookies.put('key', 'value', { path: '' });
 ```
 
 ### secure
@@ -104,5 +104,5 @@ Cookies.put('key', 'value', { path: '' })
 Either `true` or `false`, indicating if the cookie transmission requires a secure protocol (https).
 
 ```javascript
-Cookies.put('key', 'value', { secure: true })
+Cookies.put('key', 'value', { secure: true });
 ```

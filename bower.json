@@ -1,6 +1,6 @@
 {
   "name": "aurelia-plugins-cookies",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A cookies plugin for Aurelia.",
   "keywords": [
     "aurelia",
@@ -14,10 +14,10 @@
   "authors": [
     "Bart Lenaerts <bart@itprosolutions.be> (http://itprosolutions.be/)"
   ],
-  "main": "dist/commonjs/aurelia-plugins-cookies.js",
+  "main": "dist/commonjs/index.js",
   "moduleType": "node",
   "repository": {
     "type": "git",
-    "url": "http://github.com/aurelia-plugins/aurelia-plugins-cookies"
+    "url": "git://github.com/aurelia-plugins/aurelia-plugins-cookies.git"
   }
 }

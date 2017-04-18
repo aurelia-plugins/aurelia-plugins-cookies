@@ -4,8 +4,7 @@ export default class Cookies {
   // PUBLIC STATIC METHODS
   static get(key) {
     const cookies = this.getAll();
-    if (cookies && cookies[key]) return cookies[key];
-    return null;
+    return cookies && cookies[key] ? cookies[key] : null;
   }
 
   static getAll() {
@@ -17,16 +16,7 @@ export default class Cookies {
     return value ? JSON.parse(value) : value;
   }
 
-  static remove(key, options = {}) {
-    this.put(key, null, options);
-  }
-
-  static removeAll() {
-    const cookies = this.getAll();
-    Object.keys(cookies).forEach((key) => { this.remove(key); });
-  }
-
-  static put(key, value, options) {
+  static put(key, value, options = {}) {
     let expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
@@ -40,6 +30,15 @@ export default class Cookies {
 
   static putObject(key, value, options = {}) {
     this.put(key, JSON.stringify(value), options);
+  }
+
+  static remove(key, options = {}) {
+    this.put(key, null, options);
+  }
+
+  static removeAll() {
+    const cookies = this.getAll();
+    Object.keys(cookies).forEach(key => this.remove(key));
   }
 
   // PRIVATE STATIC METHODS
