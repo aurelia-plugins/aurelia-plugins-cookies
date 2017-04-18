@@ -1,7 +1,5 @@
-// PUBLIC CLASS
-export class Cookies {
 
-  // PUBLIC STATIC METHODS
+export let Cookies = class Cookies {
   static get(key) {
     const cookies = this.getAll();
     return cookies && cookies[key] ? cookies[key] : null;
@@ -41,13 +39,20 @@ export class Cookies {
     Object.keys(cookies).forEach(key => this.remove(key));
   }
 
-  // PRIVATE STATIC METHODS
   static decode(value) {
-    try { return decodeURIComponent(value); } catch (e) { return null; }
+    try {
+      return decodeURIComponent(value);
+    } catch (e) {
+      return null;
+    }
   }
 
   static encode(value) {
-    try { return encodeURIComponent(value); } catch (e) { return null; }
+    try {
+      return encodeURIComponent(value);
+    } catch (e) {
+      return null;
+    }
   }
 
   static parse(str) {
@@ -60,4 +65,4 @@ export class Cookies {
     }
     return obj;
   }
-}
+};

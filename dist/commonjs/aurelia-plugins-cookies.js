@@ -1,7 +1,7 @@
-// PUBLIC CLASS
-export class Cookies {
+'use strict';
 
-  // PUBLIC STATIC METHODS
+exports.__esModule = true;
+let Cookies = exports.Cookies = class Cookies {
   static get(key) {
     const cookies = this.getAll();
     return cookies && cookies[key] ? cookies[key] : null;
@@ -16,23 +16,29 @@ export class Cookies {
     return value ? JSON.parse(value) : value;
   }
 
-  static put(key, value, options = {}) {
+  static put(key, value) {
+    let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
     let expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
-    let str = `${this.encode(key)}=${value != null ? this.encode(value) : ''}`;
-    if (options.path) str += `; path=${options.path}`;
-    if (options.domain) str += `; domain=${options.domain}`;
-    if (options.expires) str += `; expires=${expires.toUTCString()}`;
+    let str = this.encode(key) + '=' + (value != null ? this.encode(value) : '');
+    if (options.path) str += '; path=' + options.path;
+    if (options.domain) str += '; domain=' + options.domain;
+    if (options.expires) str += '; expires=' + expires.toUTCString();
     if (options.secure) str += '; secure';
     document.cookie = str;
   }
 
-  static putObject(key, value, options = {}) {
+  static putObject(key, value) {
+    let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
     this.put(key, JSON.stringify(value), options);
   }
 
-  static remove(key, options = {}) {
+  static remove(key) {
+    let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
     this.put(key, null, options);
   }
 
@@ -41,13 +47,20 @@ export class Cookies {
     Object.keys(cookies).forEach(key => this.remove(key));
   }
 
-  // PRIVATE STATIC METHODS
   static decode(value) {
-    try { return decodeURIComponent(value); } catch (e) { return null; }
+    try {
+      return decodeURIComponent(value);
+    } catch (e) {
+      return null;
+    }
   }
 
   static encode(value) {
-    try { return encodeURIComponent(value); } catch (e) { return null; }
+    try {
+      return encodeURIComponent(value);
+    } catch (e) {
+      return null;
+    }
   }
 
   static parse(str) {
@@ -60,4 +73,4 @@ export class Cookies {
     }
     return obj;
   }
-}
+};
