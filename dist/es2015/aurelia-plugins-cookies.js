@@ -6,7 +6,7 @@ export let Cookies = class Cookies {
   }
 
   static getAll() {
-    return this.parse(document.cookie);
+    return this._parse(document.cookie);
   }
 
   static getObject(key) {
@@ -18,7 +18,7 @@ export let Cookies = class Cookies {
     let expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
-    let str = `${this.encode(key)}=${value != null ? this.encode(value) : ''}`;
+    let str = `${this._encode(key)}=${value != null ? this._encode(value) : ''}`;
     if (options.path) str += `; path=${options.path}`;
     if (options.domain) str += `; domain=${options.domain}`;
     if (options.expires) str += `; expires=${expires.toUTCString()}`;
@@ -39,7 +39,7 @@ export let Cookies = class Cookies {
     Object.keys(cookies).forEach(key => this.remove(key));
   }
 
-  static decode(value) {
+  static _decode(value) {
     try {
       return decodeURIComponent(value);
     } catch (e) {
@@ -47,7 +47,7 @@ export let Cookies = class Cookies {
     }
   }
 
-  static encode(value) {
+  static _encode(value) {
     try {
       return encodeURIComponent(value);
     } catch (e) {
@@ -55,13 +55,13 @@ export let Cookies = class Cookies {
     }
   }
 
-  static parse(str) {
+  static _parse(str) {
     const obj = {};
     const pairs = str.split(/ *; */);
     if (pairs[0] === '') return obj;
     for (let i = 0, j = pairs.length; i < j; i += 1) {
       const pair = pairs[i].split('=');
-      obj[this.decode(pair[0])] = this.decode(pair[1]);
+      obj[this._decode(pair[0])] = this._decode(pair[1]);
     }
     return obj;
   }
