@@ -24,18 +24,6 @@ bower install aurelia-plugins-cookies
 
 ## Configuration
 
-Add to `package.json`
-
-```json
-  "aurelia": {
-    "build": {
-      "resources": [
-        "aurelia-plugins-cookies"
-      ]
-    }
-  }
-```
-
 It is not necessary to load the plugin inside of the configure method of your `main.js` or `main.ts`, because this plugin doesn't use any dependencies of Aurelia. The only thing you need to be sure of, is that the library is loaded in your project.
 
 ## Usage
