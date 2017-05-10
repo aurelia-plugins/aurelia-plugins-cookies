@@ -1,76 +1,89 @@
 'use strict';
 
 exports.__esModule = true;
-let Cookies = exports.Cookies = class Cookies {
-  static get(key) {
-    const cookies = this.getAll();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Cookies = exports.Cookies = function () {
+  function Cookies() {
+    _classCallCheck(this, Cookies);
+  }
+
+  Cookies.get = function get(key) {
+    var cookies = this.getAll();
     return cookies && cookies[key] ? cookies[key] : null;
-  }
+  };
 
-  static getAll() {
+  Cookies.getAll = function getAll() {
     return this._parse(document.cookie);
-  }
+  };
 
-  static getObject(key) {
-    const value = this.get(key);
+  Cookies.getObject = function getObject(key) {
+    var value = this.get(key);
     return value ? JSON.parse(value) : value;
-  }
+  };
 
-  static put(key, value) {
-    let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  Cookies.put = function put(key, value) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-    let expires = options.expires;
+    var expires = options.expires;
     if (value == null) expires = 'Thu, 01 Jan 1970 00:00:01 GMT';
     if (typeof expires === 'string') expires = new Date(expires);
-    let str = this._encode(key) + '=' + (value != null ? this._encode(value) : '');
+    var str = this._encode(key) + '=' + (value != null ? this._encode(value) : '');
     if (options.path) str += '; path=' + options.path;
     if (options.domain) str += '; domain=' + options.domain;
     if (options.expires) str += '; expires=' + expires.toUTCString();
     if (options.secure) str += '; secure';
     document.cookie = str;
-  }
+  };
 
-  static putObject(key, value) {
-    let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  Cookies.putObject = function putObject(key, value) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     this.put(key, JSON.stringify(value), options);
-  }
+  };
 
-  static remove(key) {
-    let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  Cookies.remove = function remove(key) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     this.put(key, null, options);
-  }
+  };
 
-  static removeAll() {
-    const cookies = this.getAll();
-    Object.keys(cookies).forEach(key => this.remove(key));
-  }
+  Cookies.removeAll = function removeAll() {
+    var _this = this;
 
-  static _decode(value) {
+    var cookies = this.getAll();
+    Object.keys(cookies).forEach(function (key) {
+      return _this.remove(key);
+    });
+  };
+
+  Cookies._decode = function _decode(value) {
     try {
       return decodeURIComponent(value);
     } catch (e) {
       return null;
     }
-  }
+  };
 
-  static _encode(value) {
+  Cookies._encode = function _encode(value) {
     try {
       return encodeURIComponent(value);
     } catch (e) {
       return null;
     }
-  }
+  };
 
-  static _parse(str) {
-    const obj = {};
-    const pairs = str.split(/ *; */);
+  Cookies._parse = function _parse(str) {
+    var obj = {};
+    var pairs = str.split(/ *; */);
     if (pairs[0] === '') return obj;
-    for (let i = 0, j = pairs.length; i < j; i += 1) {
-      const pair = pairs[i].split('=');
+    for (var i = 0, j = pairs.length; i < j; i += 1) {
+      var pair = pairs[i].split('=');
       obj[this._decode(pair[0])] = this._decode(pair[1]);
     }
     return obj;
-  }
-};
+  };
+
+  return Cookies;
+}();
