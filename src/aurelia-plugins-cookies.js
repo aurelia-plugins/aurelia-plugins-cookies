@@ -1,6 +1,5 @@
 // PUBLIC CLASS
 export class Cookies {
-
   // PUBLIC STATIC METHODS
   static get(key) {
     const cookies = this.getAll();
