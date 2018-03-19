@@ -10,6 +10,16 @@ A cookies plugin for Aurelia.
 npm install aurelia-plugins-cookies --save
 ```
 
+When using Aurelia CLI add the following dependency to `aurelia.json`:
+
+```json
+{
+  "name": "aurelia-plugins-cookies",
+  "path": "../node_modules/aurelia-plugins-cookies/dist/amd",
+  "main": "aurelia-plugins-cookies"
+}
+```
+
 **JSPM**
 
 ```shell
