@@ -1,6 +1,6 @@
 {
   "name": "aurelia-plugins-cookies",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "description": "A cookies plugin for Aurelia.",
   "keywords": [
     "aurelia",
@@ -12,7 +12,7 @@
   "homepage": "https://github.com/aurelia-plugins/aurelia-plugins-cookies",
   "license": "MIT",
   "authors": [
-    "Bart Lenaerts <bart@codious.io> (http://codious.io/)"
+    "Bart Lenaerts <bart@codious.io> (https://codious.io/)"
   ],
   "moduleType": "node",
   "main": "dist/commonjs/aurelia-plugins-cookies.js",

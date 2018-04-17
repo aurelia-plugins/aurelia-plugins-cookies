@@ -20,6 +20,8 @@ When using Aurelia CLI add the following dependency to `aurelia.json`:
 }
 ```
 
+Add `node_modules/babel-polyfill/dist/polyfill.min.js` to the prepend list in `aurelia.json`. Do not forgot to add `babel-polyfill` to the dependencies in `package.json`.
+
 **JSPM**
 
 ```shell
@@ -94,7 +96,7 @@ Cookies.put('key', 'value', { expires: 'Fri, 09 Sep 2016 00:00:01 GMT' });
 A `string` indicating the path where the cookie is visible.
 
 ```javascript
-Cookies.put('key', 'value', { path: '' });
+Cookies.put('key', 'value', { path: '/' });
 ```
 
 ### secure
