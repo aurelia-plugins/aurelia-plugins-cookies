@@ -10,7 +10,7 @@ A cookies plugin for Aurelia.
 npm install aurelia-plugins-cookies --save
 ```
 
-When using Aurelia CLI add the following dependency to `aurelia.json`:
+When using Aurelia CLI add the following dependency to `aurelia.json` as described in the [documentation](http://aurelia.io/docs/build-systems/aurelia-cli#adding-client-libraries-to-your-project):
 
 ```json
 {
